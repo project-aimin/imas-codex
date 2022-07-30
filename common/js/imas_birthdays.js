@@ -340,7 +340,7 @@ function makeMLTypeTable(){
    }
   }
  };
- loadtable.open("GET","./embedpages/imasml_types.json",true);
+ loadtable.open("GET","./common/embedpages/imasml_types.json",true);
  loadtable.send();
 }
 
