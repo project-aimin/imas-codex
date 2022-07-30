@@ -1,5 +1,5 @@
 
-var annivEventIDs = new Array(44,92,142,192);
+var annivEventIDs = new Array(44,92,142,192,241);
 
 var MLIdolNames = {
  // 올스타즈
@@ -96,6 +96,7 @@ var showTDAnniversaryEventData = {
   else if(numAnniv == 2){var eid = 92;} // 2주년
   else if(numAnniv == 3){var eid = 142;} // 3주년
   else if(numAnniv == 4){var eid = 192;} // 4주년
+  else if(numAnniv == 5){var eid = 241;} // 5주년
   else{return false;}
 
   var r = this.makeReq();
@@ -183,6 +184,7 @@ var showTDAnniversaryEventData = {
   else if(numAnniv == 2){var eid = 92;} // 2주년
   else if(numAnniv == 3){var eid = 142;} // 3주년
   else if(numAnniv == 4){var eid = 192;} // 4주년
+  else if(numAnniv == 5){var eid = 241;} // 5주년
   else{return false;}
 
   var r = this.makeReq();
@@ -254,6 +256,7 @@ var showTDAnniversaryEventData = {
   else if(numAnniv == 2){var eid = 92;} // 2주년
   else if(numAnniv == 3){var eid = 142;} // 3주년
   else if(numAnniv == 4){var eid = 192;} // 4주년
+  else if(numAnniv == 5){var eid = 241;} // 5주년
   else{return false;}
   
   var r = this.makeReq();

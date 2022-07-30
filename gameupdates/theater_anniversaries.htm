@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>시어터 데이즈(밀리시타) 주년 이벤트 데이터 (Beta)</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="../css/w3.css" />
+<link rel="stylesheet" type="text/css" href="../css/imas_datas.css" />
+<link rel="stylesheet" type="text/css" href="../css/pageload.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha384-xyZLiqnBEFn1hDkS8VeG/YHoqOjS/ucimT8TI6GDr9+ZP1UNbZr6d/q0ldMi/xvL" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="../css/flag-icon.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+<script type="text/javascript" src="../js/imas_events.js"></script>
+<script type="text/javascript" src="../js/imas_eventdata.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+ var numAnnivs = document.getElementById("anniv_select").length;
+ var eventDateNow = new Number(new Date());
+
+ for(a=0;a<numAnnivs;a++){
+  var annivEventStart = new Number(new Date(document.getElementById("anniv_select")[a].dataset.eventStart));
+  if((eventDateNow - annivEventStart) < 0){document.getElementById("anniv_select").options[a].disabled = true;}
+ }
+
+ getTDGameClientInfo.getContent();
+ showTDAnniversaryEventData.retrieveAll();
+ setInterval("showTDAnniversaryEventData.retrieveData();",3600 * 1000);
+ setInterval("showTDAnniversaryEventData.retrieveTotal();",1800 * 1000);
+ setInterval("showTDAnniversaryEventData.retrieveGuild();",1800 * 1000);
+});
+</script>
+</head>
+<body id="page_theateranniversaires" onload="showTDAnniversaryEventData.pageInit();">
+<div class="w3-top">
+ <div class="w3-sidebar w3-bar-block w3-white w3-mobile w3-animate-left" style="display: none; outline: none;" id="sidebar">
+ <button onclick="closeSidebar();" class="w3-bar-item w3-large">닫기 &times;</button>
+ <a href="/" class="w3-bar-item w3-button">메인 페이지로</a>
+ <a href="../imas_birthdays.htm" class="w3-bar-item w3-button">시리즈별 캐릭터 생일 목록</a>
+ <a href="../imas_anniversaries.htm" class="w3-bar-item w3-button">시리즈 전반 생일/기념일 종합 목록</a>
+ <a href="../imas_voices.htm" class="w3-bar-item w3-button">아이마스 시리즈 캐릭터 캐스팅 목록</a>
+ <a href="../imas_idolages.htm" class="w3-bar-item w3-button">아이마스 시리즈 연령별 아이돌 캐릭터 목록</a>
+ <a href="../imas_birthplaces.htm" class="w3-bar-item w3-button">아이마스 시리즈 출신지별 캐릭터 목록</a>
+ <a href="../cg_idols.htm" class="w3-bar-item w3-button">신데렐라 걸즈 아이돌 관련 목록</a>
+ <a href="../cg_election7th.htm" class="w3-bar-item w3-button">신데렐라 걸즈 7차 총선거 최종결과 목록</a>
+ <a href="../cg_election8th.htm" class="w3-bar-item w3-button">신데렐라 걸즈 8차 총선거 관련정보</a>
+ <a href="../cg_election9th.htm" class="w3-bar-item w3-button">신데렐라 걸즈 9차 총선거+보이스 아이돌 오디션 관련정보</a>
+ <a href="../cg_election10th.htm" class="w3-bar-item w3-button">신데렐라 걸즈 10차 총선거+2차 보이스 아이돌 오디션 관련정보</a>
+ <a href="../cg_idolnumbers.htm" class="w3-bar-item w3-button">신데렐라 걸즈 아이돌 넘버 목록</a>
+ <a href="./starlight_events.htm" class="w3-bar-item w3-button">데레스테 역대 이벤트 목록</a>
+ <!-- <a href="../starlight_gachas.htm" class="w3-bar-item w3-button">데레스테 역대 가챠 갱신 목록</a> -->
+ <a href="./theater_events.htm" class="w3-bar-item w3-button">밀리시타 역대 이벤트 목록</a>
+ <!-- <a href="../theater_gachas.htm" class="w3-bar-item w3-button">밀리시타 역대 가챠 갱신 목록</a> -->
+ <a href="./theater_anniversaries.htm" class="w3-bar-item w3-button">밀리시타 역대 n주년 이벤트 데이터</a>
+ <!-- <a href="../sidemgs_events.htm" class="w3-bar-item w3-button">사이스타 역대 이벤트 목록</a>
+ <a href="../sidemgs_gachas.htm" class="w3-bar-item w3-button">사이스타 역대 가챠 갱신 목록</a> -->
+ <a href="../imas_liveevents.htm" class="w3-bar-item w3-button">아이마스 시리즈 라이브 공연 목록 (2013년 이후)</a>
+ <a href="../about.htm" class="w3-bar-item w3-button">이 사이트에 관해 (About)</a>
+ </div>
+ <div class="w3-blue"><button onclick="openSidebar();" class="w3-button w3-bar-item w3-large">&#9776;</button> <a href="/" style="color: #FFFFFF;">M@STER Codex</a></div>
+</div>
+
+
+<div class="w3-content" style="margin-top: 6em;">
+ <header class="w3-center w3-padding-large">
+  <h1 class="w3-xxlarge" style="font-weight: bold;"><img src="../assets/theaterdays_logo_kr.png" style="height: 36px; width: auto;" alt="Theater Days" title="Theater Days" />&nbsp;시어터 데이즈 n주년 이벤트 데이터 (Beta)</h1>
+ </header>
+</div>
+
+<div id="author_info">제작자 : <a href="https://naruka.me/">나루카</a> (<a href="https://senarin.kr/">홈페이지</a> / <a href="https://blog.naruka.me/">블로그</a> / <a href="https://twitter.com/Hoshi_Naruka">트위터</a>)</div>
+<div id="recent_edit">최근 수정 2021.6.29</div>
+
+<ul>
+ <li>같이 보기 : <a href="../theater_events.htm">역대 이벤트 목록</a>, <a href="../theater_gachas.htm">가챠 갱신 목록</a>, <a href="../starlight_events.htm">데레스테 이벤트 목록</a></li>
+ <li>이 페이지는 밀리시타(시어터 데이즈) <b>현지(일본어)판</b>의 <b>역대 n주년(애니버서리) 이벤트 랭킹 데이터</b>를 조회할 수 있는 페이지입니다.
+  <ul>
+   <li>한국어판의 이벤트 데이터는 다음 사이트를 참고해주세요: <a href="https://unionlive.kr/events">이벤트 목록 (unionlive.kr)</a></li>
+  </ul>
+ </li>
+ <li>각 랭킹 현황은 트위터에서도 확인 가능합니다. (<a href="https://twitter.com/imas_ml_td_a">아이돌별</a>, <a href="https://twitter.com/imas_ml_td">전체 랭킹</a>, <a href="https://twitter.com/imas_ml_td_l">라운지별</a>)</li>
+ <li>이 페이지에서 제공하는 기능들은 <b>데이터 제공처의 사정에 따라 예고없이 변경되거나 폐지될 수 있습니다.</b> 유의해주세요.</li>
+</ul>
+
+<div id="theater_client_info">
+ <p><b>게임 버전 관련 정보 (<span class="flag-icon flag-icon-jp"></span> 현지판 기준)</b></p>
+ <div id="tdclient_info_detail"><img src="../assets/loading.gif" style="width: 24px; height: auto;" alt="Loading" /> 가져오는 중...</div>
+ <script>setInterval(function(){getTDGameClientInfo.getContent();},(900 * 1000));</script>
+ <span style="font-size: 0.85em;"><span id="lastupdate_clientinfo"></span> / 정보제공: <a href="https://matsurihi.me">matsurihi.me</a> (日)</span>
+</div>
+
+<div class="anniv_countdown">
+ <p><b>다음 n주년(6월 29일)까지 남은 시간</b></p>
+ <div id="countdown_time_anniv"></div>
+ <script>var eAnnivTimestamp = new Array(6,29,0,0,0);setInterval(function(){showRemainingTime.showCountdownAnniversary(eAnnivTimestamp,"countdown_time_anniv");},50);</script>
+</div>
+
+<div id="theater_select_idol">
+ <p><b>조회하려는 이벤트 및 아이돌을 선택하세요.</b></p>
+ <select id="anniv_select" onchange="showTDAnniversaryEventData.retrieveAll();" onselect="showTDAnniversaryEventData.retrieveAll();">
+  <option value="1" data-event-start="2018-06-29T00:00:00+09:00">1주년 (BRAND★NEW★PERFORM@NCE!!!)</option>
+  <option value="2" data-event-start="2019-07-01T00:00:00+09:00">2주년 (UNI-ON@IR!!!!)</option>
+  <option value="3" data-event-start="2020-06-29T00:00:00+09:00">3주년 (CHALLENGE FOR GLOW-RY D@YS!!!)</option>
+  <option value="4" data-event-start="2021-06-29T00:00:00+09:00">4주년 (Reach 4 the Dre@m!)</option>
+  <option value="5" selected="selected" data-event-start="2022-06-30T00:00:00+09:00">5주년 (우리들의 R@inbow!)</option>
+ </select>
+ <select id="idol_select" onchange="showTDAnniversaryEventData.retrieveAll();" onselect="showTDAnniversaryEventData.retrieveAll();">
+  <option value="0">(아이돌 선택)</option>
+ </select>
+ <input type="hidden" id="recent_manual_reload" value="0" />
+ <br />
+ <div style="text-align: center; font-size: 0.85em; margin-top: 2em;">
+  [<a href="javascript:;" onclick="showTDAnniversaryEventData.goIdolInfo();">선택한 아이돌의 정보 페이지 바로가기</a>]
+ </div>
+ <div style="text-align: center; font-size: 0.85em;">
+ (각 아이돌별 컨벤션 센터는 게임 내에서 열람, 작성이 가능합니다)
+ </div>
+ <div style="text-align: center; font-size: 0.85em;">
+  [<a href="javascript:;" onclick="showTDAnniversaryEventData.manualReload();"><img id="reload_button" src="../assets/reload.png" style="width: 16px; height: auto;" /> 수동 새로고침</a>]
+ </div>
+</div>
+
+<div class="theater_events">
+
+ <h3 class="w3-large sectionheading" id="please_select">랭킹을 조회하려는 아이돌을 선택해주세요</h3>
+ <h3 class="w3-large sectionheading" id="idolrank_desc" style="display: none;"><span id="show_idolname_ml"></span>의 개별 랭킹 정보<br />(<span id="rank_timestamp"></span>)</h3>
+
+ <div style="text-align: center; font-size: 0.85em; margin-bottom: 1em;">정보제공(Data Source): <a href="https://matsurihi.me">matsurihi.me</a> (日)</div>
+
+ <table class="mlevents_list" style="width: 26em; text-align: center;">
+  <tr>
+   <td width="20%">순위</td>
+   <td width="80%">포인트 컷</td>
+  </tr>
+  <tr>
+   <td><b>1위</b></td>
+   <td id="idol_eventrank_1">--</td>
+  </td>
+  <tr>
+   <td><b>2위</b></td>
+   <td id="idol_eventrank_2">--</td>
+  </td>
+  <tr>
+   <td><b>3위</b></td>
+   <td id="idol_eventrank_3">--</td>
+  </td>
+  <tr>
+   <td>10위</td>
+   <td id="idol_eventrank_10">--</td>
+  </td>
+  <tr>
+   <td>100위</td>
+   <td id="idol_eventrank_100">--</td>
+  </td>
+  <tr>
+   <td>1000위</td>
+   <td id="idol_eventrank_1000">--</td>
+  </td>
+ </table>
+ 
+ <h3 class="w3-large sectionheading" id="totalrank_desc">전체 랭킹 (<span id="rank_timestamp_overall"></span>)</h3>
+
+ <div style="text-align: center; font-size: 0.85em; margin-bottom: 1em;">정보제공(Data Source): <a href="https://matsurihi.me">matsurihi.me</a> (日)</div>
+
+ <table class="mlevents_list" style="width: 26em; text-align: center;">
+  <tr>
+   <td width="20%">순위</td>
+   <td width="80%">포인트 컷</td>
+  </tr>
+  <tr>
+   <td><b>1위</b></td>
+   <td id="idol_totalrank_1">--</td>
+  </td>
+  <tr>
+   <td>100위</td>
+   <td id="idol_totalrank_100">--</td>
+  </td>
+  <tr>
+   <td>2500위</td>
+   <td id="idol_totalrank_2500">--</td>
+  </td>
+  <tr>
+   <td>5000위</td>
+   <td id="idol_totalrank_5000">--</td>
+  </td>
+  <tr>
+   <td>10000위</td>
+   <td id="idol_totalrank_10000">--</td>
+  </td>
+  <tr>
+   <td>25000위</td>
+   <td id="idol_totalrank_25000">--</td>
+  </td>
+  <tr>
+   <td>50000위</td>
+   <td id="idol_totalrank_50000">--</td>
+  </td>
+ </table>
+
+
+ <h3 class="w3-large sectionheading" id="guildrank_desc">라운지 랭킹 (<span id="rank_timestamp_guild"></span>)</h3>
+
+ <div style="text-align: center; font-size: 0.85em; margin-bottom: 1em;">정보제공(Data Source): <a href="https://matsurihi.me">matsurihi.me</a> (日)</div>
+
+ <table class="mlevents_list" style="width: 26em; text-align: center;">
+  <tr>
+   <td width="20%">순위</td>
+   <td width="80%">포인트 컷</td>
+  </tr>
+  <tr>
+   <td><b>1위</b></td>
+   <td id="idol_guildrank_1">--</td>
+  </td>
+  <tr>
+   <td><b>2위</b></td>
+   <td id="idol_guildrank_2">--</td>
+  </td>
+  <tr>
+   <td><b>3위</b></td>
+   <td id="idol_guildrank_3">--</td>
+  </td>
+  <tr>
+   <td>10위</td>
+   <td id="idol_guildrank_10">--</td>
+  </td>
+  <tr>
+   <td>50위</td>
+   <td id="idol_guildrank_50">--</td>
+  </td>
+  <tr>
+   <td>100위</td>
+   <td id="idol_guildrank_100">--</td>
+  </td>
+  <tr>
+   <td>250위</td>
+   <td id="idol_guildrank_250">--</td>
+  </td>
+  <tr>
+   <td>500위</td>
+   <td id="idol_guildrank_500">--</td>
+  </td>
+ </table>
+
+</div>
+
+<hr style="width: 100%; margin-top: 3em;" />
+
+<div id="page_disclaimer" style="text-align: center; padding: 1em; margin: auto;">
+<b>면책 조항</b> : 이 페이지는 <a href="http://www.bandainamcoent.co.kr/">반다이 남코 엔터테인먼트</a>와 <b>직접적 연관이 없으며, 작성자는 이 페이지를 통해 그 어떠한 금전적 이득도 취하고 있지 않습니다.</b><br />
+&quot;아이돌마스터&quot;, &quot;THE IDOLM@STER&quot;,&quot;PROJECT IM@S&quot; 및 관련 상표/공식 컨텐츠는 대한민국 및 일본, 그 외 국가에서 반다이 남코 엔터테인먼트의 재산입니다. (<a href="../license_disclaimer.htm">상세 면책 조항 및 사용권 정보</a>)<br />
+<div style="text-align: center; font-size: 1.5em; margin-top: 1em;">(<a href="https://github.com/project-cat-aimin/imas-database">사이트 소스</a> 및 <a href="../about.htm">이용 안내</a>)</div>
+</p>
+
+</body>
+</html>
