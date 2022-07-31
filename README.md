@@ -7,7 +7,7 @@
 - 이 사이트(저장소)에 게시된 일부 저작물(```/common/assets``` 경로에 있는 파일들)에 대한 권리는 [반다이 남코 엔터테인먼트](http://www.bandainamcoent.co.kr/)를 비롯한 각 당사자에게 있습니다.
 - 이 사이트(저장소)의 페이지에 사용된 일부 글꼴(폰트)은 [SIL 오픈 폰트 라이선스 (버전 1.1)](https://opensource.org/licenses/OFL-1.1)에 명시된 사용권 규약을 따릅니다.
 - 그 외의 모든 컨텐츠는 [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/legalcode)에 명시된 사용권 규약을 따릅니다.
-- 자세한 사항은 [이 페이지](https://imas-codex.senarin.kr/license_disclaimer.htm)나 위의 ```LICENSE.md``` 파일을 참고 바랍니다.
+- 자세한 사항은 [이 페이지](https://imascodex.senarin.kr/license_disclaimer.htm)나 위의 ```LICENSE.md``` 파일을 참고 바랍니다.
 
 ## 의견 보내기
 이 사이트(저장소)에 대한 의견이나 피드백, 기타 문의는 (GitHub 계정이 있을 경우) [이 저장소에 대한 이슈](https://github.com/project-aimin/imas-codex/issues)나 [Discussions](https://github.com/project-aimin/imas-codex/discussions)로 남겨주세요. 또는 <themunyang21@naver.com>으로 메일을 보내주시거나 [카카오톡 오픈챗](https://open.kakao.com/me/Yuzuriha_Rina), 또는 [개인 트위터](https://twitter.com/n6k_toyamina)로 연락해주시면 감사하겠습니다.
