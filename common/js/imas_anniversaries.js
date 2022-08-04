@@ -199,6 +199,4 @@ function displayWeekdayYearNow(){
 }
 
 var cMessage = "꿈은 자신이 이루어내는 것입니다. 다른 사람에게 맡기지 말아야 합니다. 계속해서 Stay at the frontier!";
-
-if((navigator.appName == "Netscape" && navigator.userAgent.search("Trident") != -1) || (navigator.userAgent.indexOf("msie") != -1)){console.log(cMessage);}
-else{console.log("%c "+cMessage,"color:#0000FF;font-weight:bold;");}
+console.log("%c "+cMessage,"color:#0000FF;font-weight:bold;");
