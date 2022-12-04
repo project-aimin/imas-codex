@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=IBM+Plex+Sans+KR&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 
 /* 전반적 페이지 스타일 */
 
 body,h1,h2,h3,h4,h5,h6{
-font-family: 'Pretendard', "Noto Sans KR", "Noto Sans JP", "Nanum Gothic", "Malgun Gothic", sans-serif !important;
+font-family: 'IBM Plex Sans KR', "Noto Sans KR", "Noto Sans JP", "Nanum Gothic", "Malgun Gothic", sans-serif !important;
 font-size: 13px;
 line-height: 173% !important;
 }
