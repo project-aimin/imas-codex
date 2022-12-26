@@ -316,7 +316,7 @@ showGachaRemainingSL : function(){
      
      console.log("["+(new Date()).toLocaleString()+"] [현지(일본어)판] 현재 개최 중인 이벤트 종류 : "+theaterEventType[s[0].type]);
 
-     var eDateTime0 = new Number(new Date(s[0].schedule.endDate));
+     var eDateTime0 = new Number(new Date(s[0].schedule.endAt));
      var eDateTime = new Date(eDateTime0+1000);
      var eYear = eDateTime.getFullYear();
      var eMonth = eDateTime.getMonth()+1;
@@ -331,7 +331,7 @@ showGachaRemainingSL : function(){
      var nearEndThreshold = 0;
      var underdayRemain = 86400;
 
-     var sDateTime0 = new Number(new Date(s[0].schedule.beginDate));
+     var sDateTime0 = new Number(new Date(s[0].schedule.beginAt));
      var sDateTime = new Date(sDateTime0+1000);
 
      // 종료까지 남은 시간에 따른 안내 표시
@@ -352,8 +352,8 @@ showGachaRemainingSL : function(){
 
      setInterval(function(){tickEvent.percentage(sDateTime,eDateTime,"event_progress");},50);
      
-     if("boostBeginDate" in s[0].schedule){ // 후반전이 존재할 경우
-      var bDateTime = new Date(s[0].schedule.boostBeginDate);
+     if("boostbeginAt" in s[0].schedule){ // 후반전이 존재할 경우
+      var bDateTime = new Date(s[0].schedule.boostbeginAt);
       var bYear = bDateTime.getFullYear();
       var bMonth = bDateTime.getMonth()+1;
       var bDay = bDateTime.getDate();
@@ -819,7 +819,7 @@ var getTDEventRanksInfo = {
           if(eid == eidNow){alert("'"+$("#theater_elist_j td[data-event-id="+eid+"]").text()+"'의 "+countTimestamp+" 현재의 개인 이벤트 포인트 랭킹 정보\n\n"+infoText);}
           else{
            var resultNow = new Number(new Date());
-           var resultEnd = new Number(new Date(s.schedule.pageEndDate));
+           var resultEnd = new Number(new Date(s.schedule.pageClosedAt));
            if(resultNow >= resultEnd-(97200 * 1000)){alert("'"+$("#theater_elist_j td[data-event-id="+eid+"]").text()+"'의 최종 개인 이벤트 포인트 랭킹 정보\n\n"+infoText);}
            else{alert("'"+$("#theater_elist_j td[data-event-id="+eid+"]").text()+"'의 결과는 현재 집계 중입니다. 발표를 기다려주세요.\n아래는 이벤트 종료 직전("+countTimestamp+")의 개인 이벤트 포인트 랭킹 정보입니다.\n\n"+infoText);}
           }
