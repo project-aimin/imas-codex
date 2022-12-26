@@ -669,9 +669,9 @@ var getSLGameClientInfo = {
 
      var parsingContent = JSON.parse(r.responseText);
      var cVersion = parsingContent.app.version;
-     var cTime0 = new Date(parsingContent.app.updateTime);
+     var cTime0 = new Date(parsingContent.app.updatedAt);
      var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-     var aTime0 = new Date(parsingContent.res.updateTime);
+     var aTime0 = new Date(parsingContent.res.updatedAt);
      var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
      var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
      dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
@@ -702,9 +702,9 @@ var getTDGameClientInfo = {
     if(r.status == 200){
      var parsingContent = JSON.parse(r.responseText);
      var cVersion = parsingContent.app.version;
-     var cTime0 = new Date(parsingContent.app.updateTime);
+     var cTime0 = new Date(parsingContent.app.updatedAt);
      var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-     var aTime0 = new Date(parsingContent.res.updateTime);
+     var aTime0 = new Date(parsingContent.res.updatedAt);
      var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
      var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
      dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
@@ -737,9 +737,9 @@ var getTDGameClientInfoKorean = {
      if(r.status == 200){
       var parsingContent = JSON.parse(r.responseText);
       var cVersion = parsingContent.app.version;
-      var cTime0 = new Date(parsingContent.app.updateTime);
+      var cTime0 = new Date(parsingContent.app.updatedAt);
       var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-      var aTime0 = new Date(parsingContent.res.updateTime);
+      var aTime0 = new Date(parsingContent.res.updatedAt);
       var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
       var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
       dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
