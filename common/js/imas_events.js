@@ -668,16 +668,16 @@ var getSLGameClientInfo = {
     if(r.status == 200){
 
      var parsingContent = JSON.parse(r.responseText);
-     var cVersion = parsingContent[0].app.version;
-     var cTime0 = new Date(parsingContent[0].app.updatedAt);
+     var cVersion = parsingContent.app.version;
+     var cTime0 = new Date(parsingContent.app.updatedAt);
      var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-     var aTime0 = new Date(parsingContent[0].res.updatedAt);
+     var aTime0 = new Date(parsingContent.res.updatedAt);
      var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
      var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
      dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
      document.getElementById("slclient_info_detail").innerHTML = dispContent;
      document.getElementById("slclient_info_detail").style.cursor = "help";
-     document.getElementById("slclient_info_detail").title = "Asset Version: "+ parsingContent[0].res.version;
+     document.getElementById("slclient_info_detail").title = "Asset Version: "+ parsingContent.res.version;
      var uTime = new Date();
      var uTimeDisp = uTime.getFullYear() +"년 "+ (uTime.getMonth()+1) +"월 "+ uTime.getDate() +"일 "+ uTime.getHours() +"시 "+ uTime.getMinutes() +"분 기준";
      document.getElementById("lastupdate_clientinfo").innerHTML = uTimeDisp;
@@ -701,16 +701,16 @@ var getTDGameClientInfo = {
    if(r.readyState == 4){
     if(r.status == 200){
      var parsingContent = JSON.parse(r.responseText);
-     var cVersion = parsingContent[0].app.version;
-     var cTime0 = new Date(parsingContent[0].app.updatedAt);
+     var cVersion = parsingContent.app.version;
+     var cTime0 = new Date(parsingContent.app.updatedAt);
      var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-     var aTime0 = new Date(parsingContent[0].res.updatedAt);
+     var aTime0 = new Date(parsingContent.res.updatedAt);
      var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
      var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
      dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
      document.getElementById("tdclient_info_detail").innerHTML = dispContent;
      document.getElementById("tdclient_info_detail").style.cursor = "help";
-     document.getElementById("tdclient_info_detail").title = "Asset Version: "+ parsingContent[0].res.version +", Index: "+ parsingContent[0].res.indexName;
+     document.getElementById("tdclient_info_detail").title = "Asset Version: "+ parsingContent.res.version +", Index: "+ parsingContent.res.indexName;
      var uTime = new Date();
      var uTimeDisp = uTime.getFullYear() +"년 "+ (uTime.getMonth()+1) +"월 "+ uTime.getDate() +"일 "+ uTime.getHours() +"시 "+ uTime.getMinutes() +"분 기준";
      document.getElementById("lastupdate_clientinfo").innerHTML = uTimeDisp;
@@ -736,16 +736,16 @@ var getTDGameClientInfoKorean = {
     if(r.readyState == 4){
      if(r.status == 200){
       var parsingContent = JSON.parse(r.responseText);
-      var cVersion = parsingContent[0].app.version;
-      var cTime0 = new Date(parsingContent[0].app.updatedAt);
+      var cVersion = parsingContent.app.version;
+      var cTime0 = new Date(parsingContent.app.updatedAt);
       var cTimeDisp = cTime0.getFullYear() +"년 "+ (cTime0.getMonth()+1) +"월 "+ cTime0.getDate() +"일 "+ cTime0.getHours() +"시 "+ cTime0.getMinutes() +"분";
-      var aTime0 = new Date(parsingContent[0].res.updatedAt);
+      var aTime0 = new Date(parsingContent.res.updatedAt);
       var aTimeDisp = aTime0.getFullYear() +"년 "+ (aTime0.getMonth()+1) +"월 "+ aTime0.getDate() +"일 "+ aTime0.getHours() +"시 "+ aTime0.getMinutes() +"분";
       var dispContent = "사용 가능한 버전: "+ cVersion +"<br />최근 강제 업데이트: "+ cTimeDisp +"경<br />";
       dispContent += "최근 게임 데이터 갱신: "+ aTimeDisp +"경";
       document.getElementById("tdclient_info_detail_k").innerHTML = dispContent;
       document.getElementById("tdclient_info_detail_k").style.cursor = "help";
-      document.getElementById("tdclient_info_detail_k").title = "Asset Version: "+ parsingContent[0].res.version +", Index: "+ parsingContent[0].res.indexName;
+      document.getElementById("tdclient_info_detail_k").title = "Asset Version: "+ parsingContent.res.version +", Index: "+ parsingContent.res.indexName;
       var uTime = new Date();
       var uTimeDisp = uTime.getFullYear() +"년 "+ (uTime.getMonth()+1) +"월 "+ uTime.getDate() +"일 "+ uTime.getHours() +"시 "+ uTime.getMinutes() +"분 기준";
       document.getElementById("lastupdate_clientinfo_k").innerHTML = uTimeDisp;
