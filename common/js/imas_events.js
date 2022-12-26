@@ -7,7 +7,8 @@ var theaterEventType = {
  5 : "n주년 이벤트",
  6 : "워킹",
  7 : "만우절 특별 이벤트",
- 9 : "밀리코레",
+ 8 : "미니게임",
+ 9 : "밀리코레(신)",
  10 : "트윈",
  11 : "튠",
  12 : "트윈(스페셜)",
@@ -389,7 +390,7 @@ showGachaRemainingSL : function(){
   var adjustedDate = new Date(new Number(nowDate)+(((-1) * nowDate.getTimezoneOffset() * 60000)+tzAdjust));
   var dt = adjustedDate.toISOString().replace("Z","");
 
-  r.open("GET","https://api.matsurihi.me/mltd/v1/events?at="+dt);
+  r.open("GET","https://api.matsurihi.me/api/mltd/v2/events?at="+dt);
   r.send();
  },
 
@@ -686,7 +687,7 @@ var getSLGameClientInfo = {
     }
    }
   };
-  r.open("GET","https://api.matsurihi.me/cgss/v1/version/latest");
+  r.open("GET","https://api.matsurihi.me/api/cgss/v2/version/latest");
   r.send();
  }
 };
@@ -719,7 +720,7 @@ var getTDGameClientInfo = {
     }
    }
   };
-  r.open("GET","https://api.matsurihi.me/mltd/v1/version/latest");
+  r.open("GET","https://api.matsurihi.me/api/mltd/v2/version/latest");
   r.send();
  }
 };
@@ -754,7 +755,7 @@ var getTDGameClientInfoKorean = {
      }
     }
    };
-   r.open("GET","https://api.matsurihi.me/mltd/v1/ko/version/latest");
+   r.open("GET","https://api.matsurihi.me/api/mltd/v2/ko/version/latest");
    r.send();
   }
  };
@@ -828,14 +829,14 @@ var getTDEventRanksInfo = {
          }
         }
        };
-       r.open("GET","https://api.matsurihi.me/mltd/v1/events/"+eid+"/rankings/logs/eventPoint/1,100,2500,5000,10000,25000,50000?prettyPrint=false");
+       r.open("GET","https://api.matsurihi.me/api/mltd/v2/events/"+eid+"/rankings/logs/eventPoint/1,100,2500,5000,10000,25000,50000?prettyPrint=false");
        r.send();
       }else if(etype == 5){alert("n주년 이벤트 랭킹은 이 페이지의 상단에 있는 [n주년 이벤트 관련 데이터] 링크를 참조하세요.");return;}
       else{alert("해당 이벤트는 랭킹제 이벤트가 아닙니다.");return;}
      }else{alert("이벤트 정보를 불러오던 중 오류가 발생하였습니다.");return;}
     }
    };
-   t.open("GET","https://api.matsurihi.me/mltd/v1/events/"+eid+"?prettyPrint=false");
+   t.open("GET","https://api.matsurihi.me/api/mltd/v2/events/"+eid+"?prettyPrint=false");
    t.send();
   }
  }
