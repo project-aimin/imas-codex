@@ -352,8 +352,8 @@ showGachaRemainingSL : function(){
 
      setInterval(function(){tickEvent.percentage(sDateTime,eDateTime,"event_progress");},50);
      
-     if("boostbeginAt" in s[0].schedule){ // 후반전이 존재할 경우
-      var bDateTime = new Date(s[0].schedule.boostbeginAt);
+     if("boostBeginAt" in s[0].schedule){ // 후반전이 존재할 경우
+      var bDateTime = new Date(s[0].schedule.boostBeginAt);
       var bYear = bDateTime.getFullYear();
       var bMonth = bDateTime.getMonth()+1;
       var bDay = bDateTime.getDate();
